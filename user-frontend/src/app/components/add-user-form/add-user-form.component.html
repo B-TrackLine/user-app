@@ -1,0 +1,65 @@
+<div #addUserFormModal class="modal fade" id="add-user-form-modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Add new User</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formGroup">
+                    <label class="form-label" for="nameInput">Name* </label>
+                    <input
+                    id="nameInput"
+                    class="form-control"
+                    type="text" 
+                    placeholder="John Doe" 
+                    formControlName="nameControl" />
+
+                    <label class="form-label mt-3" for="emailInput">Email* </label>
+                    <input
+                    id="emailInput"
+                    class="form-control"
+                    type="email" 
+                    placeholder="john.doe@example.com" 
+                    formControlName="emailControl" />
+
+                    <label class="form-label mt-3" for="countryInput">Country* </label>
+                    <select
+                    id="countryInput"
+                    class="form-control"
+                    formControlName="countryControl" >
+                        <option *ngFor="let c of countries" [value]="c" >
+                            {{ c | titlecase }}
+                        </option>
+                    </select>
+
+                    <label class="form-label mt-3" for="languageInput">Language* </label>
+                    <select
+                    id="languageInput"
+                    class="form-control"
+                    formControlName="languageControl" >
+                        <option *ngFor="let l of languages" [value]="l" >
+                            {{ l | titlecase }}
+                        </option>
+                    </select> 
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button 
+                type="button" 
+                class="btn btn-secondary" 
+                data-bs-dismiss="modal">
+                    Discard
+                </button>
+                <button 
+                type="button" 
+                class="btn btn-primary" 
+                data-bs-dismiss="modal"
+                [disabled]="formGroup.invalid"
+                (click)="onSaveClicked()">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

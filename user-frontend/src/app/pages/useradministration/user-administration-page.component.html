@@ -1,0 +1,15 @@
+<app-add-user-form (addNewUserEvent)="createNewUser($event)"/>
+
+<button 
+type="button" 
+class="btn btn-primary" 
+data-bs-toggle="modal" 
+data-bs-target="#add-user-form-modal">
+  Add User
+</button>
+
+<app-usertable
+class="mt-3"
+[users]="users" 
+(filtersChangedEvent)="onNewFilterValues($event)"
+(deleteUserEvent)="deleteUser($event)"/>

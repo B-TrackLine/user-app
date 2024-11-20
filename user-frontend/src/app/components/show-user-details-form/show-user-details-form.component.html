@@ -1,0 +1,53 @@
+<div class="modal fade" id="show-user-details-modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5">Details of user: {{user?.name}}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label class="form-label" for="nameOutput">Name</label>
+                    <input
+                    id="nameOutput"
+                    class="form-control"
+                    type="text"
+                    [value]="user?.name"
+                    readonly />
+        
+                    <label class="form-label mt-3" for="emailOutput">Email</label>
+                    <input
+                    id="emailOutput"
+                    class="form-control"
+                    type="email" 
+                    [value]="user?.email"
+                    readonly />
+        
+                    <label class="form-label mt-3" for="countryOutput">Country</label>
+                    <input
+                    id="countryOutput"
+                    class="form-control"
+                    type="text"
+                    [value]="user?.country | titlecase"
+                    readonly />
+
+                    <label class="form-label mt-3" for="languageOutput">Language</label>
+                    <input
+                    id="languageOutput"
+                    class="form-control"
+                    type="test"
+                    [value]="user?.language | titlecase"
+                    readonly />
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button 
+                type="button" 
+                class="btn btn-secondary" 
+                data-bs-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

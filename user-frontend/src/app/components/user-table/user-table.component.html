@@ -1,0 +1,46 @@
+<app-show-user-details-form [user]="showDetailsForUser"/>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col" class="col-3">Name</th>
+            <th scope="col" class="col-3">E-Mail</th>
+            <th scope="col" class="col-1">Actions</th>
+        </tr>
+        <tr>
+            <th scope="col">
+                <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                [(ngModel)]="filterName"
+                (keyup.enter)="onFilterChanged()"/>
+            </th>
+            <th scope="col">
+                <input 
+                class="form-control mr-sm-2" 
+                type="search" 
+                placeholder="Search"
+                [(ngModel)]="filterEmail"
+                (keyup.enter)="onFilterChanged()"/>
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (user of users; track user.id) {
+            <tr>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td class="actions-column">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#show-user-details-modal" (click)="showUserDetails(user)">
+                        <span class="bi bi-search"></span>
+                    </button>
+                    <button class="btn btn-primary ms-2" (click)="deleteUser(user.id)">
+                        <span class="bi bi-trash2-fill"></span>
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
